@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      background-image: url('lispector.jpg');
+      background-size: cover;
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+    }
+   
+    #heart-container {
+      position: relative;
+      text-align: center;
+      margin-top: 20vh;
+    }
+
+    #heart {
+      font-size: 48px;
+      color: white;
+      transition: all 0.5s ease-in-out;
+    }
+
+    #quote {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 30px;
+      animation: fade-in 2s;
+    }
+
+    #author {
+      text-align: center;
+      font-size: 30px;
+      animation: fade-in 2s;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div id="heart-container">
+          <div id="heart">❤️</div>
+        </div>
+        <div id="quote">
+          O que me tranquiliza é que tudo o que existe, existe com uma precisão absoluta.
+          O que for do tamanho de uma cabeça de alfinete não transborda nem uma fração de milímetro além do tamanho de uma cabeça de alfinete.
+          Tudo o que existe é de uma grande exatidão.
+          Pena é que a maior parte do que existe com essa exatidão nos é tecnicamente invisível.
+          Apesar da verdade ser exata e clara em si própria, quando chega até nós se torna vaga pois é tecnicamente invisível.
+          O bom é que a verdade chega a nós como um sentido secreto das coisas.
+          Nós terminamos adivinhando, confusos, a perfeição.
+        </div><br>
+        <div id="author">- Clarice Lispector</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      animateHeart();
+    });
+
+    function animateHeart() {
+      var heart = document.getElementById('heart');
+      var fontSize = 48;
+      var increment = 10;
+
+      heart.style.fontSize = fontSize + 'px';
+
+      var timer = setInterval(function() {
+        fontSize += increment;
+        heart.style.fontSize = fontSize + 'px';
+        if (fontSize >= 100 || fontSize <= 48) {
+          increment *= -1;
+        }
+      }, 200);
+
+      setTimeout(function() {
+        clearInterval(timer);
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
